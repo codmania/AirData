@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AirdataDB - Live Dashboards</title>
+<base href="http://localhost/vuvuzela/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#008AAA">
+<link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>-->
+<!--AirdataDB js -->
+
+<!--AirdataDB css-->
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="icon" type="image/png" href="img/favicon_wbg.png">
+</head>
+<body><!--header-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="./"><img alt="AirdataDB" src="img/icon.svg" class="img-responsive" title="AirdataDB" style="height:100%;"></a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li><a href="./" class="navbarmstitle">AirdataDB</a></li>-->
+        <li class="dropdown">
+          <a href="status" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Status <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> AirdataDB</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> MetaCalendar</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-info-sign" style="color:orange;"></span> MetaDisplay</a></li>
+            <li class="divider"></li>
+            <li><a href="./status">Full Status</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My AirdataDB <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Reporting</strong></a></li>
+            <li><a href="./my/reporting/auth">Live Dashboards</a></li>
+
+            <li><a href="./my/reporting/sec">Scheduled Reports</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Personalization</strong></a></li>
+            <li><a href="./my/personalization/filters">Private Filters</a></li>
+            <li><a href="./my/personalization/pruning">Pruning Rules</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Logging</strong></a></li>
+            <li><a href="./my/logging/stats">Statistics</a></li>
+            <li><a href="./my/logging/logs">Raw Logs</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Docs <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./docs/start">Getting Started</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/ms/"><strong>AirdataDB</strong></a></li>
+            <li><a href="./docs/ms/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/ms/docs">Documentation</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/mc/"><strong>MetaCalendar</strong></a></li>
+            <li><a href="./docs/mc/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/mc/docs">Documentation</a></li>
+            <li><a href="./docs/mc/lib">JavaScript Integration</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/md"><strong>MetaDisplay</strong></a></li>
+            <li><a href="./docs/md/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/md/docs">Documentation</a></li>
+            <li><a href="./docs/md/lib">JavaScript Integration</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Support <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Self-Service</strong></a></li>
+            <li><a href="./support/forum">Forum</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Support Contact Options</strong></a></li>
+            <li><a href="#">Live Support Chat <span class="glyphicon glyphicon-comment" style="color:green;"></span></a></li>
+            <li><a href="#">Submit Email Support Ticket</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./account/info">Account Information</a></li>
+            <li><a href="./account/billing">Billing Details</a></li>
+            <li><a href="./account/billinglogging">Billing logging</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--endheader-->
+<div class="container-fluid">
+<div class="row">
+<!--breadcrumbs-->
+<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+<ol class="breadcrumb">
+  <li><a href="./">Home</a></li>
+  <li>My AirdataDB</li>
+  <li><a href="./my/reporting/auth">Users & Authentication</a></li>
+</ol>
+</div>
+<!--end breadcrumbs-->
+<!--pagebody-->
+<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 text-selectable">
+<!--header-->
+<div class="page-header">
+  <h1>Live Dashboards <small>for superuser <em>user.name</em></small></h1>
+</div>
+<!--endheader-->
+<!--user panels -->
+<!--users panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Users</h3>
+  </div>
+  <div class="panel-body">
+    List users here with delete, disable, enable, reset password functionality. Password should be auto-created and reset using a 16 digit alphanumeric string with special characters.
+	<p><div class="table-responsive"><table class="table table-hover">
+<tr>
+    <th class="tg-031e">Username</th>
+    <th class="tg-031e">Passcode</th>
+    <th class="tg-031e">Status</th>
+    <th class="tg-031e">Status</th>
+    <th class="tg-031e">Settings</th>
+  </tr>
+  <tr class="active">
+    <td class="tg-031e">user.name</td>
+    <td class="tg-031e">[EA3M@/cm5JW&amp;W*</td>
+    <td class="tg-031e">superuser</td>
+    <td class="tg-031e">active</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></td>
+  </tr>
+  <tr class="warning">
+    <td class="tg-031e">agent2</td>
+    <td class="tg-031e">$h5@&amp;RXG]Vhs`9^9</td>
+    <td class="tg-031e">user</td>
+    <td class="tg-031e">inactive</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">agent3</td>
+    <td class="tg-031e">]AeSq+bGGzA8/.HA</td>
+    <td class="tg-031e">user</td>
+    <td class="tg-031e">active</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+</table></div></p>
+  </div>
+</div>
+<!--end user panel -->
+<!--new user form panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Create new sub-user</h3>
+  </div>
+  <div class="panel-body">
+    <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" name="newuseremail" class="form-control" id="exampleInputEmail1" placeholder="Enter email (optional)">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">New Username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Create username (minimum 8 char)">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <p class="form-control-static">RANDOM 16-Character (A-Z,a-z,0-9,!@#$%^&*) PW HERE</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">Portal Access
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">API Access
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">Email Notify
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="reset" class="btn btn-default">Reset</button>
+</form>
+  </div>
+</div>
+<!--end new user form panel -->
+<!-- end user panels -->
+</div>
+<!--end pagebody-->
+</div>
+</div>
+</body>
+</html>

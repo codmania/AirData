@@ -1,0 +1,79 @@
+<div class="col-md-9 page" id="demand">
+    <div class="panel panel-default" style="padding:10px;">
+        <form class="form-inline">
+
+            <div class="form-group">
+                <label class="sr-only" for="demandDepDate">DepDate</label>
+                <input class="form-control input-sm" id="demandDepDate" type="text" required=""
+                    data-toggle="tooltipDemand" data-placement="top" title="DepDate">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="demand-origin">Origin</label>
+                <input class="form-control input-sm" maxlength=3 id="demand-origin" placeholder="Origin (ie TPA)">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="demand-destination">Destination</label>
+                <input class="form-control input-sm" maxlength=3 id="demand-destination"
+                       placeholder="Destination (ie DXB)">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="demandRange">Date Range</label>
+                <input class="form-control input-sm range" id="demandRange" type="text" required="">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="demand-type">Demand Type</label>
+                <select class="form-control input-sm" id="demand-type"
+                   data-toggle="tooltipDemand" data-placement="top" title="Type">
+                    <option value="day">Day</option>
+                    <option value="hour">Hour</option>
+                </select>
+            </div>
+
+            <input class="form-control input-sm" id="demand-dep-date" type="hidden">
+            <input class="form-control input-sm" id="demand-range-start-date" type="hidden">
+            <input class="form-control input-sm" id="demand-range-end-date" type="hidden">
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Save for later
+                </label>
+            </div>
+            <button type="submit" class="build-report btn btn-sm btn-default btn-block hidden-md hidden-lg"
+                    style="margin-top:5px;"><strong>Build Report</strong></button>
+            <button type="submit" class="build-report btn btn-sm btn-default hidden-sm hidden-xs"
+                    style="margin-top:5px;"><strong>Build Report</strong></button>
+        </form>
+    </div>
+
+    <div>
+
+        <div class="demand-exported-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title inline-block">Demand by Market</h3>
+                    <h3 class="panel-title inline-block ml40" id="demand-download-links" style="display: none;">
+                        Download to <a href="#" id="demand-download-csv">CSV</a> | <a href="#" id="demand-download-pdf">PDF</a>
+                    </h3>
+                    <div class="pull-right groups-wrapper-demand"></div>
+                </div>
+                <div class="panel-body panelwithgraph">
+                    <canvas id="demand-QbyS" style="width: 100%;height: auto;"></canvas>
+                    <div id="demand-wj-graph-tooltip"></div>
+                    <div id="demand-loading" style="display: none;">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                <span class="sr-only">100% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="demand-placeholder">
+                        <img src="/img/logowait.svg" alt=""/>
+                    </div>
+                </div>
+                <div class="panel-footer" id="demand-graph-legend" style="display: none;"></div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AirdataDB - Statistics</title>
+<base href="http://localhost/vuvuzela/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#008AAA">
+<link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+<!--AirdataDB js -->
+
+<!--AirdataDB css-->
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="icon" type="image/png" href="img/favicon_wbg.png">
+</head>
+<body><!--header-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="./"><img alt="AirdataDB" src="img/icon.svg" class="img-responsive" title="AirdataDB" style="height:100%;"></a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li><a href="./" class="navbarmstitle">AirdataDB</a></li>-->
+        <li class="dropdown active">
+          <a href="status" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Status <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> AirdataDB</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> MetaCalendar</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-info-sign" style="color:orange;"></span> MetaDisplay</a></li>
+            <li class="divider"></li>
+            <li><a href="./status">Full Status</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My AirdataDB <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Reporting</strong></a></li>
+            <li><a href="./my/reporting/auth">Live Dashboards</a></li>
+
+            <li><a href="./my/reporting/sec">Scheduled Reports</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Personalization</strong></a></li>
+            <li><a href="./my/personalization/filters">Private Filters</a></li>
+            <li><a href="./my/personalization/pruning">Pruning Rules</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Logging</strong></a></li>
+            <li><a href="./my/logging/stats">Statistics</a></li>
+            <li><a href="./my/logging/logs">Raw Logs</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Docs <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./docs/start">Getting Started</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/ms/"><strong>AirdataDB</strong></a></li>
+            <li><a href="./docs/ms/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/ms/docs">Documentation</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/mc/"><strong>MetaCalendar</strong></a></li>
+            <li><a href="./docs/mc/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/mc/docs">Documentation</a></li>
+            <li><a href="./docs/mc/lib">JavaScript Integration</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/md"><strong>MetaDisplay</strong></a></li>
+            <li><a href="./docs/md/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/md/docs">Documentation</a></li>
+            <li><a href="./docs/md/lib">JavaScript Integration</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Support <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Self-Service</strong></a></li>
+            <li><a href="./support/forum">Forum</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Support Contact Options</strong></a></li>
+            <li><a href="#">Live Support Chat <span class="glyphicon glyphicon-comment" style="color:green;"></span></a></li>
+            <li><a href="#">Submit Email Support Ticket</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./account/info">Account Information</a></li>
+            <li><a href="./account/billing">Billing Details</a></li>
+            <li><a href="./account/billinglogging">Billing logging</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--endheader-->
+<div class="container-fluid">
+<div class="row">
+<!--breadcrumbs-->
+<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+<ol class="breadcrumb">
+  <li><a href="./">Home</a></li>
+  <li>My AirdataDB</li>
+  <li><a href="./my/logging/stats">Statistics</a></li>
+</ol>
+</div>
+<!--end breadcrumbs-->
+<!--pagebody-->
+<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 text-selectable">
+<!--header-->
+<div class="page-header">
+  <h1>Statistics <small>for your <img src="img/icon.svg" class="image-responsive" style="height:25px;width:auto;"><strong>AirdataDB</strong> Services</small></h1>
+</div>
+<p><a href="./my/logging/stats#export">Jump to Export by Date Range</a></p>
+<!--endheader-->
+<!--status panels -->
+<!--AirdataDB panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Past 24-Hours by Service</strong> (Hourly)</h3>
+  </div>
+  <div class="panel-body panelwithgraph">
+<canvas id="msM" style="width: 100%;height: auto;"></canvas>
+  </div>
+</div>
+<!--end AirdataDB panel -->
+<!--success panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Past 24-Hours AirdataDB Success Rate</strong> (Hourly)</h3>
+  </div>
+  <div class="panel-body panelwithgraph">
+<canvas id="msQ24" style="width: 100%;height: auto;"></canvas>
+  </div>
+</div>
+<!--end metacalendar panel -->
+<!--metacalendar panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Past 24-Hours AirdataDB by User</strong> (Hourly)</h3>
+  </div>
+  <div class="panel-body panelwithgraph">
+<canvas id="mcM" style="width: 100%;height: auto;"></canvas>
+  </div>
+</div>
+<!--end metacalendar panel -->
+<!--metadisplay panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Past 24-Hours MetaCalendar by User</strong> (Hourly)</h3>
+  </div>
+  <div class="panel-body panelwithgraph">
+<canvas id="mdM" style="width: 100%;height: auto;"></canvas>
+  </div>
+</div>
+<!--end metadisplay panel -->
+<!--metadisplay panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Past 24-Hours MetaDisplay by User</strong> (Hourly)</h3>
+  </div>
+  <div class="panel-body panelwithgraph">
+<canvas id="mduM" style="width: 100%;height: auto;"></canvas>
+  </div>
+</div>
+<!--end metadisplay panel -->
+<!-- end status panels -->
+
+<!--header-->
+<div class="page-header">
+  <h1 id="export">Export <small>by Date Range</small></h1>
+</div>
+<!--endheader-->
+<div class="panel panel-default">
+  <div class="panel-body">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Export Start Date</label>
+    <input type="date" class="form-control" id="exampleInputDate1">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Export End Date</label>
+    <input type="date" class="form-control" id="exampleInputDate1">
+  </div>
+  <div class="form-group">
+    <div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default">HTML (Table)</button>
+  <button type="button" class="btn btn-default">HTML (Graph)</button>
+  <button type="button" class="btn btn-default">CSV</button>
+  <button type="button" class="btn btn-default">PDF</button>
+</div>
+  </div>
+  <button type="submit" class="btn btn-default">Export</button>
+</form>
+</div>
+</div>
+
+<!--end pagebody-->
+</div>
+</div>
+</body>
+<!--searchesbyservice-->
+<script type="text/javascript">
+
+//chart 1 AirdataDB monitor
+var msMd = {
+    labels: ["-24h", "-23h", "-22h", "-21h", "-20h", "-19h", "-18h","-17h", "-16h", "-15h", "-14h", "-13h", "-12h", "-11h","-10h", "-9h", "-8h", "-7h", "-6h", "-5h", "-4h","-3h", "-2h", "-1h", "Live"],
+    datasets: [
+        {
+            label: "AirdataDB",
+            fillColor: "rgba(0,138,170,0.2)",
+            strokeColor: "#008AAA",
+            pointColor: "#008AAA",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#008AAA",
+            data: [6800,6950,7000,8000,9000,10000,9500,9250,11000,13000,8000,7650,14000,16000,17000,19000,12000,7000,8000,10000,14000,13000,10000,8000,2000]
+        },
+        {
+            label: "MetaCalendar",
+            fillColor: "rgba(255,177,0,0.2)",
+            strokeColor: "#FFB100",
+            pointColor: "#FFB100",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FFB100",
+            data: [6200,8950,9000,4200,11000,10000,13000,15250,11000,9000,8000,9650,13000,20000,4000,3000,12600,17000,18000,11000,14000,8000,7000,6000,3000]
+        },
+        {
+            label: "MetaDisplay",
+            fillColor: "rgba(255,30,0,0.2)",
+            strokeColor: "#FF1E00",
+            pointColor: "#FF1E00",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FF1E00",
+            data: [11000,18950,19000,17200,22000,16000,13000,12250,11000,19000,18000,19450,15000,22000,14000,13000,14600,13000,11000,9000,15000,17000,17500,16000,1000]
+        }
+    ]
+};
+
+var msMctx = document.getElementById("msM").getContext("2d");
+new Chart(msMctx).Line(msMd, {
+    barShowStroke: false,
+	animation: false,
+	tooltipTitleFontFamily: "'Titillium Web',sans-serif",
+	tooltipFontStyle: "600",
+	tooltipFontFamily: "'Titillium Web',sans-serif",
+	tooltipTitleFontStyle: "600",
+	scaleFontFamily: "'Titillium Web',sans-serif",
+	scaleFontStyle: "700",
+	responsive: true,
+	maintainAspectRatio: true
+});
+
+//chart 2 metacalendar monitor
+var mcMd = {
+    labels: ["-24h", "-23h", "-22h", "-21h", "-20h", "-19h", "-18h","-17h", "-16h", "-15h", "-14h", "-13h", "-12h", "-11h","-10h", "-9h", "-8h", "-7h", "-6h", "-5h", "-4h","-3h", "-2h", "-1h", "Live"],
+    datasets: [
+        {
+            label: "AirdataDB",
+            fillColor: "rgba(0,138,170,0.2)",
+            strokeColor: "#008AAA",
+            pointColor: "#008AAA",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#008AAA",
+            data: [6800,6950,7000,8000,9000,10000,9500,9250,11000,13000,8000,7650,14000,16000,17000,19000,12000,7000,8000,10000,14000,13000,10000,8000,2000]
+        },
+        {
+            label: "MetaCalendar",
+            fillColor: "rgba(255,177,0,0.2)",
+            strokeColor: "#FFB100",
+            pointColor: "#FFB100",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FFB100",
+            data: [6200,8950,9000,4200,11000,10000,13000,15250,11000,9000,8000,9650,13000,20000,4000,3000,12600,17000,18000,11000,14000,8000,7000,6000,3000]
+        },
+        {
+            label: "MetaDisplay",
+            fillColor: "rgba(255,30,0,0.2)",
+            strokeColor: "#FF1E00",
+            pointColor: "#FF1E00",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FF1E00",
+            data: [11000,18950,19000,17200,22000,16000,13000,12250,11000,19000,18000,19450,15000,22000,14000,13000,14600,13000,11000,9000,15000,17000,17500,16000,1000]
+        }
+    ]
+};
+
+var mcMctx = document.getElementById("mcM").getContext("2d");
+new Chart(mcMctx).Line(mcMd, {
+    barShowStroke: false,
+	animation: false,
+	tooltipTitleFontFamily: "'Titillium Web',sans-serif",
+	tooltipFontStyle: "600",
+	tooltipFontFamily: "'Titillium Web',sans-serif",
+	tooltipTitleFontStyle: "600",
+	scaleFontFamily: "'Titillium Web',sans-serif",
+	scaleFontStyle: "700",
+	responsive: true,
+	maintainAspectRatio: true
+});
+
+
+//chart 2 metadisplay monitor
+var mdMd = {
+    labels: ["-24h", "-23h", "-22h", "-21h", "-20h", "-19h", "-18h","-17h", "-16h", "-15h", "-14h", "-13h", "-12h", "-11h","-10h", "-9h", "-8h", "-7h", "-6h", "-5h", "-4h","-3h", "-2h", "-1h", "Live"],
+    datasets: [
+        {
+            label: "AirdataDB",
+            fillColor: "rgba(0,138,170,0.2)",
+            strokeColor: "#008AAA",
+            pointColor: "#008AAA",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#008AAA",
+            data: [6800,6950,7000,8000,9000,10000,9500,9250,11000,13000,8000,7650,14000,16000,17000,19000,12000,7000,8000,10000,14000,13000,10000,8000,2000]
+        },
+        {
+            label: "MetaCalendar",
+            fillColor: "rgba(255,177,0,0.2)",
+            strokeColor: "#FFB100",
+            pointColor: "#FFB100",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FFB100",
+            data: [6200,8950,9000,4200,11000,10000,13000,15250,11000,9000,8000,9650,13000,20000,4000,3000,12600,17000,18000,11000,14000,8000,7000,6000,3000]
+        },
+        {
+            label: "MetaDisplay",
+            fillColor: "rgba(255,30,0,0.2)",
+            strokeColor: "#FF1E00",
+            pointColor: "#FF1E00",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FF1E00",
+            data: [11000,18950,19000,17200,22000,16000,13000,12250,11000,19000,18000,19450,15000,22000,14000,13000,14600,13000,11000,9000,15000,17000,17500,16000,1000]
+        }
+    ]
+};
+
+var mdMctx = document.getElementById("mdM").getContext("2d");
+new Chart(mdMctx).Line(mdMd, {
+    barShowStroke: false,
+	animation: false,
+	tooltipTitleFontFamily: "'Titillium Web',sans-serif",
+	tooltipFontStyle: "600",
+	tooltipFontFamily: "'Titillium Web',sans-serif",
+	tooltipTitleFontStyle: "600",
+	scaleFontFamily: "'Titillium Web',sans-serif",
+	scaleFontStyle: "700",
+	responsive: true,
+	maintainAspectRatio: true
+});
+
+//chart 4 metadisplay monitor
+var mduMd = {
+    labels: ["-24h", "-23h", "-22h", "-21h", "-20h", "-19h", "-18h","-17h", "-16h", "-15h", "-14h", "-13h", "-12h", "-11h","-10h", "-9h", "-8h", "-7h", "-6h", "-5h", "-4h","-3h", "-2h", "-1h", "Live"],
+    datasets: [
+        {
+            label: "AirdataDB",
+            fillColor: "rgba(0,138,170,0.2)",
+            strokeColor: "#008AAA",
+            pointColor: "#008AAA",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#008AAA",
+            data: [6800,6950,7000,8000,9000,10000,9500,9250,11000,13000,8000,7650,14000,16000,17000,19000,12000,7000,8000,10000,14000,13000,10000,8000,2000]
+        },
+        {
+            label: "MetaCalendar",
+            fillColor: "rgba(255,177,0,0.2)",
+            strokeColor: "#FFB100",
+            pointColor: "#FFB100",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FFB100",
+            data: [6200,8950,9000,4200,11000,10000,13000,15250,11000,9000,8000,9650,13000,20000,4000,3000,12600,17000,18000,11000,14000,8000,7000,6000,3000]
+        },
+        {
+            label: "MetaDisplay",
+            fillColor: "rgba(255,30,0,0.2)",
+            strokeColor: "#FF1E00",
+            pointColor: "#FF1E00",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FF1E00",
+            data: [11000,18950,19000,17200,22000,16000,13000,12250,11000,19000,18000,19450,15000,22000,14000,13000,14600,13000,11000,9000,15000,17000,17500,16000,1000]
+        }
+    ]
+};
+
+var mduMctx = document.getElementById("mduM").getContext("2d");
+new Chart(mduMctx).Line(mduMd, {
+    barShowStroke: false,
+	animation: false,
+	tooltipTitleFontFamily: "'Titillium Web',sans-serif",
+	tooltipFontStyle: "600",
+	tooltipFontFamily: "'Titillium Web',sans-serif",
+	tooltipTitleFontStyle: "600",
+	scaleFontFamily: "'Titillium Web',sans-serif",
+	scaleFontStyle: "700",
+	responsive: true,
+	maintainAspectRatio: true
+});
+
+//chart 5 metadisplay monitor
+var msQ24d = {
+    labels: ["-24h", "-23h", "-22h", "-21h", "-20h", "-19h", "-18h","-17h", "-16h", "-15h", "-14h", "-13h", "-12h", "-11h","-10h", "-9h", "-8h", "-7h", "-6h", "-5h", "-4h","-3h", "-2h", "-1h", "Live"],
+    datasets: [
+        {
+            label: "Success",
+            fillColor: "rgba(0,138,170,0.2)",
+            strokeColor: "#008AAA",
+            pointColor: "#008AAA",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#008AAA",
+            data: [6800,6950,7000,8000,9000,10000,9500,9250,11000,13000,8000,7650,14000,16000,17000,19000,12000,7000,8000,10000,14000,13000,10000,8000,2000]
+        },
+        {
+            label: "Fail",
+            fillColor: "rgba(255,177,0,0.2)",
+            strokeColor: "#FFB100",
+            pointColor: "#FFB100",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FFB100",
+            data: [1200,1950,1000,1200,1000,1000,1300,1550,1000,900,800,965,1300,1200,1400,300,1260,1700,1800,1100,1400,800,700,600,300]
+        },
+    ]
+};
+
+var msQ24x = document.getElementById("msQ24").getContext("2d");
+new Chart(msQ24x).Bar(msQ24d, {
+    barShowStroke: false,
+	animation: false,
+	tooltipTitleFontFamily: "'Titillium Web',sans-serif",
+	tooltipFontStyle: "600",
+	tooltipFontFamily: "'Titillium Web',sans-serif",
+	tooltipTitleFontStyle: "600",
+	scaleFontFamily: "'Titillium Web',sans-serif",
+	scaleFontStyle: "700",
+	responsive: true,
+	maintainAspectRatio: true
+});
+</script>
+<!--end searchesbyservice -->
+</html>

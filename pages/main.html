@@ -1,0 +1,144 @@
+<!-- stats 1 -->
+<div class="col-md-9 page" id="main">
+
+    <div class="errorBlock"></div>
+
+    <div class="panel panel-default" style="padding:10px;">
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="main-origin">Origin</label>
+                <input class="form-control input-sm" maxlength=3 id="main-origin" placeholder="Origin (ie TPA)" required="">
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="main-destination">Destination</label>
+                <input class="form-control input-sm" maxlength=3 id="main-destination" placeholder="Destination (ie DXB)" required="">
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="mainRange">Date Range</label>
+                <input class="form-control input-sm range" id="mainRange" type="text" required="">
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="cabinClass">Class</label>
+                <select class="form-control input-sm" id="cabinClass"
+                    data-toggle="tooltip-main" data-placement="top" title="Cabin Class">
+                    <option value="">All</option>
+                    <option value="economy">Economy</option>
+                    <option value="business">Business</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="mainThresholdMin">Min threshold</label>
+                <input class="form-control input-sm" id="mainThresholdMin" type="number" placeholder="Min threshold">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="mainThresholdMax">Max threshold</label>
+                <input class="form-control input-sm" id="mainThresholdMax" type="number" placeholder="Max threshold">
+            </div>
+
+            <input class="form-control input-sm" id="main-range-start-date" type="hidden" required="">
+            <input class="form-control input-sm" id="main-range-end-date" type="hidden" required="">
+
+            <!-- <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="save" class="save" value="true"> Save for later
+                </label>
+            </div> -->
+            <button type="button" class="build-report btn btn-sm btn-default btn-block hidden-md hidden-lg" style="margin-top:5px;"><strong>Build Report</strong></button>
+            <button type="button" class="build-report btn btn-sm btn-default hidden-sm hidden-xs" style="margin-top:5px;"><strong>Build Report</strong></button>
+        </form>
+    </div>
+
+    <div>
+
+        <div class="main-exported-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title inline-block">Date Range by Market</h3>
+                    <h3 class="panel-title inline-block ml40" id="main-download-links" style="display: none;">
+                        Download to <a href="#" id="main-download-csv">CSV</a> | <a href="#" id="main-download-pdf">PDF</a>
+                    </h3>
+                    <div class="pull-right groups-wrapper-main"></div>
+                </div>
+                <div class="panel-body panelwithgraph main-panel">
+                    <canvas id="main-QbyS" style="width: 100%;height: auto;"></canvas>
+                    <div id="main-wj-graph-tooltip"></div>
+                    <div id="main-loading" style="display: none;">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                <span class="sr-only">100% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="main-placeholder">
+                        <img src="/img/logowait.svg" alt=""/>
+                    </div>
+                </div>
+                <div class="panel-footer" id="main-graph-legend" style="display: none;"></div>
+            </div>
+
+            <div class="panel panel-default table-responsive" id="main-report-block" style="display:none">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--not showing now-->
+        <div class="panel panel-default hide" id="main-diff-block" style="display:none;">
+            <div class="panel-heading">
+                <h3 class="panel-title inline-block">Diff</h3>
+            </div>
+            <div class="panel-body panelwithgraph">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <canvas id="main-diff-upper" style="width: 100%;height: auto;"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer" id="main-graph-legend-diff">
+
+            </div>
+        </div>
+
+
+        <div class="row small-tables main-exported-content">
+
+            <div class="col-sm-12">
+                <div class="panel panel-default" id="main-negative-block" style="display:none">
+                    <div class="panel-heading">
+                        <h3 class="panel-title inline-block">Differential by Date Range</h3>
+                        <h3 class="panel-title inline-block ml40"></h3>
+                    </div>
+                    <div class="main-negative-group-wrapper">
+                        <div class="main-negative-group">
+                            <div class="panel-body panelwithgraph negative-panel">
+                                <div class="row">
+                                    <div class="col-sm-12" id="main-negative-canvas">
+                                        <!-- <canvas style="width: 100%; height: auto;"></canvas> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-wrapper">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- end stats 1 -->

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AirdataDB - Private Filters</title>
+<base href="http://localhost/vuvuzela/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#008AAA">
+<link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>-->
+<!--AirdataDB js -->
+<!--sortable list -->
+<script>
+  $(function() {
+    $( "#privatefilterslist" ).sortable();
+    $( "#privatefilterslist" ).disableSelection();
+  });
+  </script>
+
+<!--AirdataDB css-->
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="icon" type="image/png" href="img/favicon_wbg.png">
+</head>
+<body><!--header-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="./"><img alt="AirdataDB" src="img/icon.svg" class="img-responsive" title="AirdataDB" style="height:100%;"></a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li><a href="./" class="navbarmstitle">AirdataDB</a></li>-->
+        <li class="dropdown">
+          <a href="status" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Status <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> AirdataDB</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> MetaCalendar</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-info-sign" style="color:orange;"></span> MetaDisplay</a></li>
+            <li class="divider"></li>
+            <li><a href="./status">Full Status</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My AirdataDB <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Reporting</strong></a></li>
+            <li><a href="./my/reporting/auth">Live Dashboards</a></li>
+
+            <li><a href="./my/reporting/sec">Scheduled Reports</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Personalization</strong></a></li>
+            <li><a href="./my/personalization/filters">Private Filters</a></li>
+            <li><a href="./my/personalization/pruning">Pruning Rules</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Logging</strong></a></li>
+            <li><a href="./my/logging/stats">Statistics</a></li>
+            <li><a href="./my/logging/logs">Raw Logs</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Docs <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./docs/start">Getting Started</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/ms/"><strong>AirdataDB</strong></a></li>
+            <li><a href="./docs/ms/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/ms/docs">Documentation</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/mc/"><strong>MetaCalendar</strong></a></li>
+            <li><a href="./docs/mc/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/mc/docs">Documentation</a></li>
+            <li><a href="./docs/mc/lib">JavaScript Integration</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/md"><strong>MetaDisplay</strong></a></li>
+            <li><a href="./docs/md/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/md/docs">Documentation</a></li>
+            <li><a href="./docs/md/lib">JavaScript Integration</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Support <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Self-Service</strong></a></li>
+            <li><a href="./support/forum">Forum</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Support Contact Options</strong></a></li>
+            <li><a href="#">Live Support Chat <span class="glyphicon glyphicon-comment" style="color:green;"></span></a></li>
+            <li><a href="#">Submit Email Support Ticket</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./account/info">Account Information</a></li>
+            <li><a href="./account/billing">Billing Details</a></li>
+            <li><a href="./account/billinglogging">Billing logging</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--endheader-->
+<div class="container-fluid">
+<div class="row">
+<!--breadcrumbs-->
+<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+<ol class="breadcrumb">
+  <li><a href="./">Home</a></li>
+  <li>My AirdataDB</li>
+  <li><a href="./my/personalization/filters">Private Filters</a></li>
+</ol>
+</div>
+<!--end breadcrumbs-->
+<!--pagebody-->
+<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 text-selectable">
+<!--header-->
+<div class="page-header">
+  <h1>Private Filters <small>for cached results</h1>
+</div>
+<!--endheader-->
+<!--user panels -->
+<!--rules panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Current Private Filters List:</h3>
+  </div>
+  <div class="panel-body">
+<table class="table table-hover">
+<tr>
+    <th class="tg-031e">Filter</th>
+    <th class="tg-031e">Expiration Date</th>
+    <th class="tg-031e">Status</th>
+    <th class="tg-031e">Actions</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">Where MarketingAirline->Code = AY</td>
+    <td class="tg-031e">2015-06-14 16:02:00</td>
+    <td class="tg-031e">Disabled</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+  <tr class="warning">
+    <td class="tg-031e">Where ValidatingCarrier->Code = RJ</td>
+    <td class="tg-031e">2015-06-16 10:04:00</td>
+    <td class="tg-031e">Enabled</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">Where ValidatingCarrier->Code = AC</td>
+    <td class="tg-031e">2015-06-12 13:55:00</td>
+    <td class="tg-031e">Disabled</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+</table>
+
+
+  </div>
+</div>
+<!--end rules panel -->
+
+<!--new rule form panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add Private Filter</h3>
+  </div>
+  <div class="panel-body">
+    <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Where Field:</label>
+    <select name="addField" id="ApiFilterCondition0ApiFilterFieldId">
+<option value=""></option>
+<option value="1">FlightSegment - FlightNumber</option>
+<option value="2">FlightSegment - StopQuantity</option>
+<option value="3">FlightSegment - RPH</option>
+<option value="4">FlightSegment - DepartureDateTime</option>
+<option value="5">FlightSegment - ArrivalDateTime</option>
+<option value="6">DepartureAirport - LocationCode</option>
+<option value="7">DepartureAirport - CodeContext</option>
+<option value="8">ArrivalAirport - LocationCode</option>
+<option value="9">ArrivalAirport - CodeContext</option>
+<option value="10">Equipment - AirEquipType</option>
+<option value="11">MarketingAirline - CodeContext</option>
+<option value="12">MarketingAirline - Code</option>
+<option value="13">MarketingCabin - CabinType</option>
+<option value="14">eTicket - Ind</option>
+<option value="15">ValidatingCarrier - Code</option>
+</select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Contains Value:</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Place Value Here (ie EK)">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Block Until Start Of Day:</label>
+    <input type="date" class="form-control" id="exampleInputDate1">
+  </div>
+<div class="form-group">On add, rule should be: <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked>Enabled
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option2" autocomplete="off">Disabled
+  </label>
+</div></div>
+<div class="form-group"></div>
+<div class="form-group">
+  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="reset" class="btn btn-default">Reset</button>
+  </div>
+</form>
+  </div>
+  </div>
+</div>
+<!--end new rule form panel -->
+
+
+<!-- end filters panels -->
+</div>
+<!--end pagebody-->
+</div>
+</div>
+</body>
+</html>

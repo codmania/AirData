@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AirdataDB - Status</title>
+<base href="http://localhost/vuvuzela/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#008AAA">
+<link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+<!--AirdataDB js -->
+
+<!--AirdataDB css-->
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="icon" type="image/png" href="img/favicon_wbg.png">
+</head>
+<body><!--header-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="./"><img alt="AirdataDB" src="img/icon.svg" class="img-responsive" title="AirdataDB" style="height:100%;"></a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li><a href="./" class="navbarmstitle">AirdataDB</a></li>-->
+        <li class="dropdown active">
+          <a href="status" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Status <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> AirdataDB</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> MetaCalendar</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-info-sign" style="color:orange;"></span> MetaDisplay</a></li>
+            <li class="divider"></li>
+            <li><a href="./status">Full Status</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My AirdataDB <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Reporting</strong></a></li>
+            <li><a href="./my/reporting/auth">Live Dashboards</a></li>
+
+            <li><a href="./my/reporting/sec">Scheduled Reports</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Personalization</strong></a></li>
+            <li><a href="./my/personalization/filters">Private Filters</a></li>
+            <li><a href="./my/personalization/pruning">Pruning Rules</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Logging</strong></a></li>
+            <li><a href="./my/logging/stats">Statistics</a></li>
+            <li><a href="./my/logging/logs">Raw Logs</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Docs <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./docs/start">Getting Started</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/ms/"><strong>AirdataDB</strong></a></li>
+            <li><a href="./docs/ms/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/ms/docs">Documentation</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/mc/"><strong>MetaCalendar</strong></a></li>
+            <li><a href="./docs/mc/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/mc/docs">Documentation</a></li>
+            <li><a href="./docs/mc/lib">JavaScript Integration</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/md"><strong>MetaDisplay</strong></a></li>
+            <li><a href="./docs/md/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/md/docs">Documentation</a></li>
+            <li><a href="./docs/md/lib">JavaScript Integration</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Support <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Self-Service</strong></a></li>
+            <li><a href="./support/forum">Forum</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Support Contact Options</strong></a></li>
+            <li><a href="#">Live Support Chat <span class="glyphicon glyphicon-comment" style="color:green;"></span></a></li>
+            <li><a href="#">Submit Email Support Ticket</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./account/info">Account Information</a></li>
+            <li><a href="./account/billing">Billing Details</a></li>
+            <li><a href="./account/billinglogging">Billing logging</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--endheader-->
+<div class="container-fluid">
+<div class="row">
+<!--breadcrumbs-->
+<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+<ol class="breadcrumb">
+  <li><a href="./">Home</a></li>
+  <li><a href="./status">Status</a></li>
+</ol>
+</div>
+<!--end breadcrumbs-->
+<!--pagebody-->
+<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 text-selectable">
+<!--header-->
+<div class="page-header">
+  <h1>App Status <small>for all <img src="img/icon.svg" class="image-responsive" style="height:25px;width:auto;"><strong>AirdataDB</strong> Services</small></h1>
+</div>
+<!--endheader-->
+<!--status panels -->
+<!--AirdataDB panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong style="color:#008AAA;">AirdataDB</strong> (Response time in seconds)</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+	<div class="col-md-6">
+	<h2><span class="glyphicon glyphicon-ok-sign" style="color:green;" aria-hidden="true"></span> Service <strong style="color:green;">ALL GOOD</strong></h2>
+	<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge">Automated</span>
+    Monitoring
+  </li>
+  <li class="list-group-item">
+    <span class="badge">Optimal</span>
+    Hardware
+  </li>
+  <li class="list-group-item">
+    <span class="badge">Inactive</span>
+    Maintenance Tasks
+  </li>
+</ul></div>
+	<!-- stats 1 -->
+<div class="col-md-6">
+<div class="panel panel-default">
+  <div class="panel-body panelwithgraph">
+<canvas id="msM" style="width: 100%;height: auto;"></canvas>
+  </div>
+</div>
+</div>
+<!-- end stats 1 -->
+	</div>
+  </div>
+</div>
+<!--end AirdataDB panel -->
+<!--metacalendar panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong style="color:#FFB100;">MetaCalendar</strong> (Response time in seconds)</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+	<div class="col-md-6">
+	<h2><span class="glyphicon glyphicon-ok-sign" style="color:green;" aria-hidden="true"></span> Service <strong style="color:green;">ALL GOOD</strong></h2>
+	<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge">Automated</span>
+    Monitoring
+  </li>
+  <li class="list-group-item">
+    <span class="badge">Optimal</span>
+    Hardware
+  </li>
+  <li class="list-group-item">
+    <span class="badge">Inactive</span>
+    Maintenance Tasks
+  </li>
+</ul></div>
+	<!-- stats 1 -->
+<div class="col-md-6">
+<div class="panel panel-default">
+  <div class="panel-body panelwithgraph">
+<canvas id="mcM" style="width: 100%;height: auto;"></canvas>
+  </div>
+</div>
+</div>
+<!-- end stats 1 -->
+	</div>
+  </div>
+</div>
+<!--end metacalendar panel -->
+<!--metadisplay panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong style="color:#FF1E00;">MetaDisplay</strong> (Response time in seconds)</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+	<div class="col-md-6">
+	<h2><span class="glyphicon glyphicon-info-sign" style="color:orange;" aria-hidden="true"></span> Service <strong style="color:orange;">Affected</strong></h2>
+	<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge">Technician</span>
+    Monitoring
+  </li>
+  <li class="list-group-item">
+    <span class="badge">Task In-progress</span>
+    Hardware
+  </li>
+  <li class="list-group-item">
+    <span class="badge">Active</span>
+    Maintenance Tasks
+  </li>
+</ul></div>
+	<!-- stats 1 -->
+<div class="col-md-6">
+<div class="panel panel-default">
+  <div class="panel-body panelwithgraph">
+<canvas id="mdM" style="width: 100%;height: auto;"></canvas>
+  </div>
+</div>
+</div>
+<!-- end stats 1 -->
+	</div>
+  </div>
+</div>
+<!--end metadisplay panel -->
+<!-- end status panels -->
+</div>
+<!--end pagebody-->
+</div>
+</div>
+</body>
+<!--searchesbyservice-->
+<script type="text/javascript">
+//chart 1 AirdataDB monitor
+var msMd = {
+    labels: ["-18m", "-15m", "-12m", "-9m", "-6m", "-3m", "Live"],
+    datasets: [
+        {
+            label: "AirdataDB",
+            fillColor: "rgba(0,138,170,0.2)",
+            strokeColor: "#008AAA",
+            pointColor: "#008AAA",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#008AAA",
+            data: [.4, .3, .5, .2, .4, .3, .45]
+        }
+    ]
+};
+
+var msMctx = document.getElementById("msM").getContext("2d");
+new Chart(msMctx).Line(msMd, {
+    barShowStroke: false,
+	tooltipTitleFontFamily: "'Titillium Web',sans-serif",
+	tooltipFontStyle: "600",
+	tooltipFontFamily: "'Titillium Web',sans-serif",
+	tooltipTitleFontStyle: "600",
+	scaleFontFamily: "'Titillium Web',sans-serif",
+	scaleFontStyle: "700",
+	responsive: true,
+	maintainAspectRatio: true
+});
+
+//chart 2 metacalendar monitor
+var mcMd = {
+    labels: ["-18m", "-15m", "-12m", "-9m", "-6m", "-3m", "Live"],
+    datasets: [
+        {
+            label: "MetaCalendar",
+            fillColor: "rgba(255,177,0,0.2)",
+            strokeColor: "#FFB100",
+            pointColor: "#FFB100",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FFB100",
+            data: [.5, .6, .4, .5, .6, .4, .45]
+        }
+    ]
+};
+
+var mcMctx = document.getElementById("mcM").getContext("2d");
+new Chart(mcMctx).Line(mcMd, {
+    barShowStroke: false,
+	tooltipTitleFontFamily: "'Titillium Web',sans-serif",
+	tooltipFontStyle: "600",
+	tooltipFontFamily: "'Titillium Web',sans-serif",
+	tooltipTitleFontStyle: "600",
+	scaleFontFamily: "'Titillium Web',sans-serif",
+	scaleFontStyle: "700",
+	responsive: true,
+	maintainAspectRatio: true
+});
+
+
+//chart 2 metadisplay monitor
+var mdMd = {
+    labels: ["-18m", "-15m", "-12m", "-9m", "-6m", "-3m", "Live"],
+    datasets: [
+        {
+            label: "MetaDisplay",
+            fillColor: "rgba(255,30,0,0.2)",
+            strokeColor: "#FF1E00",
+            pointColor: "#FF1E00",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "#FF1E00",
+            data: [.9, 2, 1.5, 1.2, .2, .3, .4]
+        }
+    ]
+};
+
+var mdMctx = document.getElementById("mdM").getContext("2d");
+new Chart(mdMctx).Line(mdMd, {
+    barShowStroke: false,
+	tooltipTitleFontFamily: "'Titillium Web',sans-serif",
+	tooltipFontStyle: "600",
+	tooltipFontFamily: "'Titillium Web',sans-serif",
+	tooltipTitleFontStyle: "600",
+	scaleFontFamily: "'Titillium Web',sans-serif",
+	scaleFontStyle: "700",
+	responsive: true,
+	maintainAspectRatio: true
+});
+</script>
+<!--end searchesbyservice -->
+</html>

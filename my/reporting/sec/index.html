@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AirdataDB - Scheduled Reports</title>
+<base href="http://localhost/vuvuzela/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#008AAA">
+<link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>-->
+<!--AirdataDB js -->
+
+<!--AirdataDB css-->
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="icon" type="image/png" href="img/favicon_wbg.png">
+</head>
+<body><!--header-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="./"><img alt="AirdataDB" src="img/icon.svg" class="img-responsive" title="AirdataDB" style="height:100%;"></a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li><a href="./" class="navbarmstitle">AirdataDB</a></li>-->
+        <li class="dropdown">
+          <a href="status" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Status <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> AirdataDB</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> MetaCalendar</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-info-sign" style="color:orange;"></span> MetaDisplay</a></li>
+            <li class="divider"></li>
+            <li><a href="./status">Full Status</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My AirdataDB <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Reporting</strong></a></li>
+            <li><a href="./my/reporting/auth">Live Dashboards</a></li>
+
+            <li><a href="./my/reporting/sec">Scheduled Reports</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Personalization</strong></a></li>
+            <li><a href="./my/personalization/filters">Private Filters</a></li>
+            <li><a href="./my/personalization/pruning">Pruning Rules</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Logging</strong></a></li>
+            <li><a href="./my/logging/stats">Statistics</a></li>
+            <li><a href="./my/logging/logs">Raw Logs</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Docs <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./docs/start">Getting Started</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/ms/"><strong>AirdataDB</strong></a></li>
+            <li><a href="./docs/ms/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/ms/docs">Documentation</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/mc/"><strong>MetaCalendar</strong></a></li>
+            <li><a href="./docs/mc/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/mc/docs">Documentation</a></li>
+            <li><a href="./docs/mc/lib">JavaScript Integration</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/md"><strong>MetaDisplay</strong></a></li>
+            <li><a href="./docs/md/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/md/docs">Documentation</a></li>
+            <li><a href="./docs/md/lib">JavaScript Integration</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Support <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Self-Service</strong></a></li>
+            <li><a href="./support/forum">Forum</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Support Contact Options</strong></a></li>
+            <li><a href="#">Live Support Chat <span class="glyphicon glyphicon-comment" style="color:green;"></span></a></li>
+            <li><a href="#">Submit Email Support Ticket</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./account/info">Account Information</a></li>
+            <li><a href="./account/billing">Billing Details</a></li>
+            <li><a href="./account/billinglogging">Billing logging</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--endheader-->
+<div class="container-fluid">
+<div class="row">
+<!--breadcrumbs-->
+<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+<ol class="breadcrumb">
+  <li><a href="./">Home</a></li>
+  <li>My AirdataDB</li>
+  <li><a href="./my/reporting/sec">Scheduled Reports</a></li>
+</ol>
+</div>
+<!--end breadcrumbs-->
+<!--pagebody-->
+<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 text-selectable">
+<!--header-->
+<div class="page-header">
+  <h1>Security <small>IP access restrictions</h1>
+</div>
+<!--endheader-->
+<!--user panels -->
+<!--blacklist panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Blacklisted IPs</h3>
+  </div>
+  <div class="panel-body">Blacklisted IPs will not be able to search with your credentials. <strong>Careful:</strong><em> this will interrupt service to listed IPs for all APIs.</em>
+	<p><div class="table-responsive"><table class="table table-hover">
+<tr>
+    <th class="tg-031e">IP</th>
+    <th class="tg-031e">Blacklist Enabled</th>
+    <th class="tg-031e">Note</th>
+    <th class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+  </tr>
+  <tr>
+    <td class="tg-031e">000.000.000.000</td>
+    <td class="tg-031e">Enabled</td>
+    <td class="tg-031e">Hacker</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+  <tr class="warning">
+    <td class="tg-031e">000.000.000.000</td>
+    <td class="tg-031e">Disabled</td>
+    <td class="tg-031e">DOS</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">000.000.000.000</td>
+    <td class="tg-031e">Enabled</td>
+    <td class="tg-031e">Ex-partner</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+</table></div></p>
+  </div>
+</div>
+<!--end blacklist panel -->
+<!--whitelist panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Whitelisted IPs - <strong style="color:#FF7F00;">Whitelisting ENABLED</strong></h3>
+  </div>
+  <div class="panel-body"><p>Whitelisted IPs can be added and then whitelisting can be enabled - only allowing specific IP addresses to query services using your credentials. All other IPs will be blacklisted.</p>
+  <p>Whitelist is currently: <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary active" for="option1">
+    <input type="radio" name="options" id="option1" autocomplete="off">Enabled
+  </label>
+  <label class="btn btn-primary" for="option2">
+    <input type="radio" name="options" id="option2" autocomplete="off" checked>Disabled
+  </label>
+</div></p>
+	<p><div class="table-responsive"><table class="table table-hover">
+<tr>
+    <th class="tg-031e">IP</th>
+    <th class="tg-031e">Whitelist Enabled</th>
+    <th class="tg-031e">Note</th>
+    <th class="tg-031e">Actions</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">000.000.000.000</td>
+    <td class="tg-031e">Enabled</td>
+    <td class="tg-031e">Our API</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+  <tr class="warning">
+    <td class="tg-031e">000.000.000.000</td>
+    <td class="tg-031e">Disabled</td>
+    <td class="tg-031e">Our Front-end</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">000.000.000.000</td>
+    <td class="tg-031e">Enabled</td>
+    <td class="tg-031e">Our office</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+</table></div></p>
+  </div>
+</div>
+<!--end whitelist panel -->
+<!--new ip list panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add IP</h3>
+  </div>
+  <div class="panel-body">
+    <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">IP Address</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Add IP (in 0.0.0.0 format)">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Note</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Add note describing IP">
+  </div>
+<div class="form-group">IP is <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked>Enabled
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option2" autocomplete="off">Disabled
+  </label>
+</div> for <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked>Blacklist
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option2" autocomplete="off">Whitelist
+  </label>
+</div> </div>
+<div class="form-group"></div>
+<div class="form-group">
+  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="reset" class="btn btn-default">Reset</button>
+  </div>
+</form>
+  </div>
+  </div>
+  <!--whitelist panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Concurrent IP Throttling</h3>
+  </div>
+  <div class="panel-body"><p>An IP address can be set to only allow a certain number of concurrent queries. This can drastically limit abuse from partners who are under DDOS attack or send unwanted traffic.</p>
+	<p><div class="table-responsive"><table class="table table-hover">
+<tr>
+    <th class="tg-031e">IP</th>
+    <th class="tg-031e">Throttle Enabled</th>
+    <th class="tg-031e">Max Concurrent</th>
+    <th class="tg-031e">Note</th>
+    <th class="tg-031e">Actions</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">000.000.000.000</td>
+    <td class="tg-031e">Enabled</td>
+    <td class="tg-031e">5</td>
+    <td class="tg-031e">Our API</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+  <tr class="warning">
+    <td class="tg-031e">000.000.000.000</td>
+    <td class="tg-031e">Disabled</td>
+    <td class="tg-031e">25</td>
+    <td class="tg-031e">Our Front-end</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">000.000.000.000</td>
+    <td class="tg-031e">Enabled</td>
+    <td class="tg-031e">125</td>
+    <td class="tg-031e">Our office</td>
+    <td class="tg-031e"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+  </tr>
+</table></div></p>
+  </div>
+</div>
+<!--end whitelist panel -->
+<!--new user form panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add Throttled IP</h3>
+  </div>
+  <div class="panel-body">
+    <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">IP Address</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Add IP (in 0.0.0.0 format)">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Note</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Add note describing IP">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Max Concurrent Throttled</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Insert max number of concurrent queries allowed">
+  </div>
+<div class="form-group">IP Throttling is <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked>Enabled
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option2" autocomplete="off">Disabled
+  </label>
+</div></div>
+<div class="form-group"></div>
+<div class="form-group">
+  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="reset" class="btn btn-default">Reset</button>
+  </div>
+</form>
+  </div>
+  </div>
+</div>
+<!--end new user form panel -->
+</div>
+<!--end new ip list panel -->
+
+
+<!-- end security panels -->
+</div>
+<!--end pagebody-->
+</div>
+</div>
+</body>
+</html>

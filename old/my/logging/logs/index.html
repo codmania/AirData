@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AirdataDB - Logs</title>
+<base href="http://localhost/vuvuzela/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#008AAA">
+<link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>-->
+<!--AirdataDB js -->
+<!--sortable list -->
+<script>
+  $(function() {
+    $( "#privatefilterslist" ).sortable();
+    $( "#privatefilterslist" ).disableSelection();
+  });
+  </script>
+
+<!--AirdataDB css-->
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="icon" type="image/png" href="img/favicon_wbg.png">
+</head>
+<body><!--header-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="./"><img alt="AirdataDB" src="img/icon.svg" class="img-responsive" title="AirdataDB" style="height:100%;"></a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li><a href="./" class="navbarmstitle">AirdataDB</a></li>-->
+        <li class="dropdown">
+          <a href="status" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Status <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> AirdataDB</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> MetaCalendar</a></li>
+            <li class="divider"></li>
+            <li><a href="./status"><span class="glyphicon glyphicon-info-sign" style="color:orange;"></span> MetaDisplay</a></li>
+            <li class="divider"></li>
+            <li><a href="./status">Full Status</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My AirdataDB <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Reporting</strong></a></li>
+            <li><a href="./my/reporting/auth">Live Dashboards</a></li>
+
+            <li><a href="./my/reporting/sec">Scheduled Reports</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Personalization</strong></a></li>
+            <li><a href="./my/personalization/filters">Private Filters</a></li>
+            <li><a href="./my/personalization/pruning">Pruning Rules</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Logging</strong></a></li>
+            <li><a href="./my/logging/stats">Statistics</a></li>
+            <li><a href="./my/logging/logs">Raw Logs</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Docs <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./docs/start">Getting Started</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/ms/"><strong>AirdataDB</strong></a></li>
+            <li><a href="./docs/ms/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/ms/docs">Documentation</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/mc/"><strong>MetaCalendar</strong></a></li>
+            <li><a href="./docs/mc/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/mc/docs">Documentation</a></li>
+            <li><a href="./docs/mc/lib">JavaScript Integration</a></li>
+            <li class="divider"></li>
+            <li><a href="./docs/md"><strong>MetaDisplay</strong></a></li>
+            <li><a href="./docs/md/samples">Sample Requests & Responses</a></li>
+            <li><a href="./docs/md/docs">Documentation</a></li>
+            <li><a href="./docs/md/lib">JavaScript Integration</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Support <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><strong>Self-Service</strong></a></li>
+            <li><a href="./support/forum">Forum</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><strong>Support Contact Options</strong></a></li>
+            <li><a href="#">Live Support Chat <span class="glyphicon glyphicon-comment" style="color:green;"></span></a></li>
+            <li><a href="#">Submit Email Support Ticket</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./account/info">Account Information</a></li>
+            <li><a href="./account/billing">Billing Details</a></li>
+            <li><a href="./account/billinglogging">Billing logging</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--endheader-->
+<div class="container-fluid">
+<div class="row">
+<!--breadcrumbs-->
+<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+<ol class="breadcrumb">
+  <li><a href="./">Home</a></li>
+  <li>My AirdataDB</li>
+  <li><a href="./my/logging/logs">Raw Logs</a></li>
+</ol>
+</div>
+<!--end breadcrumbs-->
+<!--pagebody-->
+<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 text-selectable">
+<!--header-->
+<div class="page-header">
+  <h1>System Logs <small>for your services</h1>
+</div>
+<!--endheader-->
+<!--user panels -->
+<!--rules panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Past 1000 lines of system logs</h3>
+  </div>
+  <div class="panel-body">
+  <code>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pellentesque odio in est dignissim suscipit. Ut dapibus lacus sem, in dignissim arcu consectetur at. Curabitur eu mi purus. Proin scelerisque felis a ipsum pulvinar, ut varius tellus gravida. Vivamus interdum tincidunt arcu vel bibendum. Etiam eu commodo nunc, id pellentesque tortor. Integer tempor neque nec rutrum tristique. Cras ac bibendum turpis. Etiam euismod, justo a facilisis fringilla, orci leo laoreet neque, ac molestie nibh lorem nec elit. Nam ac tincidunt diam. Nulla ac accumsan turpis. Suspendisse augue velit, scelerisque non dictum ac, vestibulum blandit nibh. Morbi lacinia vulputate leo, sit amet accumsan diam feugiat ac.
+
+Nullam rhoncus euismod libero ut aliquam. Curabitur id hendrerit felis. Nulla eu nisi non risus tristique gravida. Nunc feugiat porttitor sapien, ac bibendum lorem ornare non. Cras tempor eros non massa eleifend pulvinar. Mauris quis consequat mi. Pellentesque facilisis dolor lacinia sapien porta vulputate. Curabitur ultricies dolor non fermentum congue. Nulla id libero sapien. Donec augue velit, pellentesque sit amet velit nec, finibus condimentum dui. In quis venenatis dui. Ut vulputate dignissim purus, eu posuere lorem tristique a. Suspendisse posuere porttitor tristique. Cras vulputate tristique felis, in dictum lorem volutpat a. Duis eget elit eu orci ultricies mattis in ac erat. Aliquam auctor nulla risus, in ornare tellus gravida malesuada.
+
+Maecenas libero purus, aliquam congue euismod vel, ullamcorper vitae felis. Integer dapibus luctus est vitae eleifend. Proin ipsum sem, cursus vel magna non, hendrerit convallis nisl. Suspendisse aliquam bibendum massa id tincidunt. Nunc iaculis a odio vel gravida. Nulla porttitor enim sed nibh sagittis ultrices. Etiam elementum magna metus.
+
+Phasellus eu imperdiet dolor. Nam volutpat justo ut orci dapibus sollicitudin. In suscipit purus non metus euismod dictum. Suspendisse potenti. In ac faucibus mi, non semper orci. In hac habitasse platea dictumst. Nam ut condimentum enim, a ullamcorper ex. In vestibulum libero vel molestie efficitur. Vestibulum vel congue dolor. Donec non viverra nisl. Aenean non nibh lorem. Maecenas eget sodales ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+
+Duis diam erat, fringilla vel consectetur ut, hendrerit ac lectus. Duis posuere aliquam quam in euismod. Quisque porttitor eu est eu dapibus. Curabitur eu sodales dolor, eget scelerisque leo. Vivamus ut nunc consectetur, mollis orci eu, fermentum leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum malesuada eget risus in scelerisque. Nam vel finibus elit.</code>
+  </div>
+</div>
+<!--end rules panel -->
+<div class="page-header">
+  <h1 id="export">Export Logs<small> by Date</small></h1>
+</div>
+<!--endheader-->
+<div class="panel panel-default">
+  <div class="panel-body">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Export Start Date</label>
+    <input type="date" class="form-control" id="exampleInputDate1">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Export End Date</label>
+    <input type="date" class="form-control" id="exampleInputDate1">
+  </div>
+  <div class="form-group">
+    <div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default">TXT</button>
+  <button type="button" class="btn btn-default">PDF</button>
+</div>
+  </div>
+  <button type="submit" class="btn btn-default">Export</button>
+</form>
+</div>
+</div>
+
+
+<!-- end filters panels -->
+</div>
+<!--end pagebody-->
+</div>
+</div>
+</body>
+</html>

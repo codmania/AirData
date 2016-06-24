@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AirdataDB - AirIQ Search</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="theme-color" content="#008AAA">
+        <link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.13/daterangepicker.min.css">
+        <link rel="stylesheet" href="../../../css/bootstrap-multiselect/bootstrap-multiselect.css?version=11">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script>
+        <!--AirdataDB js -->
+        <!--AirdataDB css-->
+        <link rel="stylesheet" type="text/css" href="../../../css/default.css?version=11">
+        <link rel="icon" type="image/png" href="../../../img/favicon_wbg.png">
+    </head>
+    <body class="page" style="display: none"><!--header-->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!--<a class="navbar-brand" href="./"><img alt="AirdataDB" src="img/icon.svg" class="img-responsive" title="AirdataDB" style="height:100%;"></a>-->
+                    <a href="../" class="navbar-brand"><strong>AirdataDB</strong></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <!--<li><a href="./" class="navbarmstitle">AirdataDB</a></li>-->
+                        <!--<li class="dropdown active">
+                            <a href="../status" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Status <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="../status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> AirdataDB</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> MetaCalendar</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../status"><span class="glyphicon glyphicon-info-sign" style="color:orange;"></span> MetaDisplay</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../status">Full Status</a></li>
+                            </ul>
+                        </li>-->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My AirdataDB <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#"><strong>AirIQ</strong></a></li>
+                                <li class="active"><a href="">AirIQ Search</a></li>
+                                <!--<li><a href="../my/reporting/auth">Live Dashboards</a></li>
+                                <li><a href="../my/reporting/sec">Scheduled Reports</a></li>-->
+                                <li><a href="../dashboard">Saved Dashboards</a></li>
+                                <!--<li class="divider"></li>
+                                <li><a href="#"><strong>Personalization</strong></a></li>
+                                <li><a href="../my/personalization/filters">Private Filters</a></li>
+                                <li><a href="../my/personalization/pruning">Pruning Rules</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><strong>Logging</strong></a></li>
+                                <li><a href="../my/logging/stats">Statistics</a></li>
+                                <li><a href="../my/logging/logs">Raw Logs</a></li>-->
+                            </ul>
+                        </li>
+                        <!--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Docs <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="./docs/start">Getting Started</a></li>
+                                <li class="divider"></li>
+                                <li><a href="./docs/ms/"><strong>AirdataDB</strong></a></li>
+                                <li><a href="./docs/ms/samples">Sample Requests & Responses</a></li>
+                                <li><a href="./docs/ms/docs">Documentation</a></li>
+                                <li class="divider"></li>
+                                <li><a href="./docs/mc/"><strong>MetaCalendar</strong></a></li>
+                                <li><a href="./docs/mc/samples">Sample Requests & Responses</a></li>
+                                <li><a href="./docs/mc/docs">Documentation</a></li>
+                                <li><a href="./docs/mc/lib">JavaScript Integration</a></li>
+                                <li class="divider"></li>
+                                <li><a href="./docs/md"><strong>MetaDisplay</strong></a></li>
+                                <li><a href="./docs/md/samples">Sample Requests & Responses</a></li>
+                                <li><a href="./docs/md/docs">Documentation</a></li>
+                                <li><a href="./docs/md/lib">JavaScript Integration</a></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Support <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#"><strong>Self-Service</strong></a></li>
+                                <li><a href="./support/forum">Forum</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><strong>Support Contact Options</strong></a></li>
+                                <li><a href="#">Live Support Chat <span class="glyphicon glyphicon-comment" style="color:green;"></span></a></li>
+                                <li><a href="#">Submit Email Support Ticket</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="./account/info">Account Information</a></li>
+                                <li><a href="./account/billing">Billing Details</a></li>
+                                <li><a href="./account/billinglogging">Billing logging</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" id="logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--endheader-->
+        <div class="container-fluid">
+            <!--<div class="alert alert-success alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>Welcome to AirdataDB. If this is your first time, <a href="#">take a tour</a>.
+            </div>
+            <div class="alert alert-info alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>You are logged in as superuser <a href="./account/info">eric.bechtel</a>.</div>
+            <div class="row">-->
+
+            <!-- service status panel -->
+            <div class="col-md-3">
+                <ul class="nav nav-stacked main-nav">
+                    <li role="presentation" class="active"><a href="/my/airiq/reports/#/" class="first" data-target="#main">Future Date Range by Market</a></li>
+                    <li role="presentation"><a href="/my/airiq/reports/#/history" data-target="#history">Historical by Market</a></li>
+                    <li role="presentation"><a href="/my/airiq/reports/#/demand" data-target="#demand">Demand by Search Date Range</a></li>
+                </ul>
+            </div>
+            <!-- end status panel -->
+
+            <!-- concurrent queries panel -->
+            <!--<div class="col-md-4">
+            <div class="panel panel-default" style="background-color:#008AAA;color:white;">
+              <div class="panel-body text-center">
+                    <p>You Have</p>
+                <h1 style="font-size:72px;margin-top:-10px;">127</h1>
+                    <p style="margin-top:-5px;">Live Concurrent Queries (All Services)</p>
+              </div>
+            </div>
+            </div>-->
+            <!-- end concurrent queries panel -->
+
+            <div style="display: none">
+                <div id="carrierGroups" class="groups-block">
+                    <div class="btn-group toggle-buttons-block" data-toggle="buttons">
+                        <label class="btn btn-default active">
+                            <input type="radio" class="toggle-buttons" autocomplete="off" checked value="all"> All Airlines
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" class="toggle-buttons" autocomplete="off" value="none"> None
+                        </label>
+                    </div>
+                    <select class="form-control carrier-groups" multiple="multiple"></select>
+                </div>
+            </div>
+
+            <div id="view"></div>
+
+        </div>
+
+    <script type="text/javascript" src="../../../js/index.js?version=11"></script>
+    </body>
+</html>

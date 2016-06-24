@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AirdataDB - Saved Dashboards</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="theme-color" content="#008AAA">
+        <link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.13/daterangepicker.min.css">
+        <link rel="stylesheet" href="../../../css/bootstrap-multiselect/bootstrap-multiselect.css?version=11">
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script>
+        <!--AirdataDB js -->
+        <!--AirdataDB css-->
+        <link rel="stylesheet" href="../../../css/jslider/normalize.css" type="text/css">
+        <link rel="stylesheet" href="../../../css/jslider/main.css" type="text/css">
+        <link rel="stylesheet" href="../../../css/jslider/prism.css" type="text/css">
+        <link rel="stylesheet" href="../../../css/jslider/jquery.range.css" type="text/css">
+
+        <link rel="stylesheet" type="text/css" href="../../../css/default.css?version=11">
+        <link rel="icon" type="image/png" href="../../../img/favicon_wbg.png">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="../../../js/jslider/prism.js"></script>
+        <script type="text/javascript" src="../../../js/jslider/jquery.range.js"></script>
+
+    </head>
+    <body class="page my-saved" style="display: none"><!--header-->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!--<a class="navbar-brand" href="./"><img alt="AirdataDB" src="img/icon.svg" class="img-responsive" title="AirdataDB" style="height:100%;"></a>-->
+                    <a href="../" class="navbar-brand"><strong>AirdataDB</strong></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <!--<li><a href="./" class="navbarmstitle">AirdataDB</a></li>-->
+                        <!--<li class="dropdown active">
+                            <a href="../status" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Status <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="../status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> AirdataDB</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../status"><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span> MetaCalendar</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../status"><span class="glyphicon glyphicon-info-sign" style="color:orange;"></span> MetaDisplay</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../status">Full Status</a></li>
+                            </ul>
+                        </li>-->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My AirdataDB <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#"><strong>AirIQ</strong></a></li>
+                                <li><a href="../reports">AirIQ Search</a></li>
+                                <!--<li><a href="../my/reporting/auth">Live Dashboards</a></li>
+                                <li><a href="../my/reporting/sec">Scheduled Reports</a></li>-->
+                                <li class="active"><a href="">Saved Dashboards</a></li>
+                                <!--<li class="divider"></li>
+                                <li><a href="#"><strong>Personalization</strong></a></li>
+                                <li><a href="../my/personalization/filters">Private Filters</a></li>
+                                <li><a href="../my/personalization/pruning">Pruning Rules</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><strong>Logging</strong></a></li>
+                                <li><a href="../my/logging/stats">Statistics</a></li>
+                                <li><a href="../my/logging/logs">Raw Logs</a></li>-->
+                            </ul>
+                        </li>
+                        <!--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Docs <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="./docs/start">Getting Started</a></li>
+                                <li class="divider"></li>
+                                <li><a href="./docs/ms/"><strong>AirdataDB</strong></a></li>
+                                <li><a href="./docs/ms/samples">Sample Requests & Responses</a></li>
+                                <li><a href="./docs/ms/docs">Documentation</a></li>
+                                <li class="divider"></li>
+                                <li><a href="./docs/mc/"><strong>MetaCalendar</strong></a></li>
+                                <li><a href="./docs/mc/samples">Sample Requests & Responses</a></li>
+                                <li><a href="./docs/mc/docs">Documentation</a></li>
+                                <li><a href="./docs/mc/lib">JavaScript Integration</a></li>
+                                <li class="divider"></li>
+                                <li><a href="./docs/md"><strong>MetaDisplay</strong></a></li>
+                                <li><a href="./docs/md/samples">Sample Requests & Responses</a></li>
+                                <li><a href="./docs/md/docs">Documentation</a></li>
+                                <li><a href="./docs/md/lib">JavaScript Integration</a></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Support <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#"><strong>Self-Service</strong></a></li>
+                                <li><a href="./support/forum">Forum</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><strong>Support Contact Options</strong></a></li>
+                                <li><a href="#">Live Support Chat <span class="glyphicon glyphicon-comment" style="color:green;"></span></a></li>
+                                <li><a href="#">Submit Email Support Ticket</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="./account/info">Account Information</a></li>
+                                <li><a href="./account/billing">Billing Details</a></li>
+                                <li><a href="./account/billinglogging">Billing logging</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" id="logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--endheader-->
+        <div class="container-fluid">
+
+            <!-- service status panel -->
+            <div class="col-md-3">
+
+                <div class="just-padding">
+                    <div class="list-group list-group-root well">
+
+                        <a href="#main-toggle" class="list-group-item main-toggle" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i> Future Date Range by Market
+                            <span class="badge pull-right"></span>
+                        </a>
+                        <div class="list-group collapse" id="main-toggle"></div>
+
+                        <a href="#history-toggle" class="list-group-item history-toggle" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i> Historical by Market
+                            <span class="badge pull-right"></span>
+                        </a>
+                        <div class="list-group collapse" id="history-toggle"></div>
+
+                        <a href="#demand-toggle" class="list-group-item demand-toggle" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i> Demand by Search Date Range
+                            <span class="badge pull-right"></span>
+                        </a>
+                        <div class="list-group collapse" id="demand-toggle"></div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- end status panel -->
+
+            <div class="col-md-6 col-sm-12 hidden panel-template" id="panelTemplate">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"></h3>
+                    </div>
+                    <div class="panel-body" style="padding: 0; position: relative;">
+                        <div class="legend"></div>
+                        <div class="wrap-chart" style="margin: 5px;"></div>
+
+                        <div class="hidden data-loading">
+                            <div class="main-progress-bar">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        <span class="sr-only">100% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-placeholder">
+                                <img src="/img/logowait.svg" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="errorBlock"></div>
+                <div class="row" id="view"></div>
+            </div>
+
+        </div>
+
+    <script type="text/javascript" src="../../../js/dashboard.js?version=11"></script>
+    </body>
+</html>

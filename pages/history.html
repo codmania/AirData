@@ -1,0 +1,187 @@
+<div class="col-md-9 page" id="history">
+
+    <div class="errorBlock"></div>
+
+    <div class="panel panel-default" style="padding:10px;">
+        <form class="form-inline">
+
+            <div class="form-group">
+                <label class="sr-only" for="outboundDate">Outbound Range</label>
+                <input class="form-control input-sm" id="outboundDate" type="text" required=""
+                    data-toggle="tooltipoutbound" data-placement="top" title="Outbound Date">
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="history-origin">Origin</label>
+                <input class="form-control input-sm" maxlength=3 id="history-origin" placeholder="Origin (ie TPA)">
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="history-destination">Destination</label>
+                <input class="form-control input-sm" maxlength=3 id="history-destination"
+                       placeholder="Destination (ie DXB)">
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="historyRange">Date Range</label>
+                <input class="form-control input-sm range" id="historyRange" type="text" required="">
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="historyThresholdMin">Min threshold</label>
+                <input class="form-control input-sm" id="historyThresholdMin" type="number" placeholder="Min threshold">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="historyThresholdMax">Max threshold</label>
+                <input class="form-control input-sm" id="historyThresholdMax" type="number" placeholder="Max threshold">
+            </div>
+
+            <input class="form-control input-sm" id="history-outbound-date" type="hidden">
+            <input class="form-control input-sm" id="history-range-start-date" type="hidden">
+            <input class="form-control input-sm" id="history-range-end-date" type="hidden">
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="save" class="save" value="true"> Save for later
+                </label>
+            </div>
+            <button type="submit" class="build-report btn btn-sm btn-default btn-block hidden-md hidden-lg"
+                    style="margin-top:5px;"><strong>Build Report</strong></button>
+            <button type="submit" class="build-report btn btn-sm btn-default hidden-sm hidden-xs"
+                    style="margin-top:5px;"><strong>Build Report</strong></button>
+        </form>
+    </div>
+
+    <div>
+
+        <div class="history-exported-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title inline-block">Historical by Market</h3>
+                    <h3 class="panel-title inline-block ml40" id="history-download-links" style="display: none;">
+                        Download to <a href="#" id="history-download-csv">CSV</a> | <a href="#" id="history-download-pdf">PDF</a>
+                    </h3>
+                    <div class="pull-right groups-wrapper-history"></div>
+                </div>
+                <div class="panel-body panelwithgraph">
+                    <canvas id="history-QbyS" style="width: 100%;height: auto;"></canvas>
+                    <div id="history-wj-graph-tooltip"></div>
+                    <div id="history-loading" style="display: none;">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                <span class="sr-only">100% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="history-placeholder">
+                        <img src="/img/logowait.svg" alt=""/>
+                    </div>
+                </div>
+                <div class="panel-footer" id="history-graph-legend" style="display: none;"></div>
+            </div>
+
+            <div class="panel panel-default table-responsive" id="history-report-block" style="display:none">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!--not showing now-->
+        <div class="panel panel-default hide" id="history-diff-block" style="display:none;">
+            <div class="panel-heading">
+                <h3 class="panel-title inline-block">Diff</h3>
+            </div>
+            <div class="panel-body panelwithgraph">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <canvas id="history-diff-upper" style="width: 100%;height: auto;"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer" id="history-graph-legend-diff">
+
+            </div>
+        </div>
+
+
+        <div class="row small-tables history-exported-content">
+
+            <div class="col-sm-6">
+                <div class="panel panel-default" id="history-negative-block" style="display:none">
+                    <div class="panel-heading">
+                        <h3 class="panel-title inline-block">Differential by Date Range</h3>
+                        <h3 class="panel-title inline-block ml40"></h3>
+                    </div>
+                    <div class="panel-body panelwithgraph">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <canvas style="width: 100%;height: auto;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="panel panel-default" id="history-positive-block" style="display:none">
+                    <div class="panel-heading">
+                        <h3 class="panel-title inline-block">Profit Differential</h3>
+                        <h3 class="panel-title inline-block multiplier"></h3>
+                        <div class="multiplier-dropdown pull-right">
+                            <label for="profitMultiplierHistory">PAX Multiplier:</label>
+                            <select id="profitMultiplierHistory" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="panel-body panelwithgraph">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <canvas style="width: 100%;height: auto;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
